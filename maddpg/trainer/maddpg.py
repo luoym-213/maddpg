@@ -7,7 +7,7 @@ from maddpg.common.distributions import make_pdtype
 from maddpg import AgentTrainer
 from maddpg.trainer.replay_buffer import ReplayBuffer
 
-
+#计算折扣奖励
 def discount_with_dones(rewards, dones, gamma):
     discounted = []
     r = 0
@@ -17,6 +17,7 @@ def discount_with_dones(rewards, dones, gamma):
         discounted.append(r)
     return discounted[::-1]
 
+# 更新目标网络
 def make_update_exp(vals, target_vals):
     polyak = 1.0 - 1e-2
     expression = []
